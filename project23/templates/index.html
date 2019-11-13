@@ -1,0 +1,133 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+</head>
+<body style="color: red">
+<select>
+    <option value="1" data-a-css-class="quantity"></option>
+</select>
+<table align="center" border="0">
+    <tr>
+        <th width="" style="background-color: gray">
+            <img src="{% static 'images/hotel_image.jpg' %}" width="100" height="100">
+        </th>
+        <th WIDTH="" style="background-color: gray; color: white"><h1>NAVEEN HOTEL'S</h1></th>
+
+        <th width="500" align="right" colspan="10">
+            <h3>{% now 'SHORT_DATETIME_FORMAT' %}</h3>
+        </th>
+    </tr>
+</table>
+<br><br>
+<form action="{% url 'send' %}" method="post">
+    {% csrf_token %}
+<table border="2" cellpadding="-100" cellspacing="-10">
+    <tr>
+        <th width="" colspan="5">
+            <h1>Breakfast Express</h1>
+        </th>
+    </tr>
+    <tr>
+        <th
+                width="300"><img src="{% static 'images/idly.jpg' %}" height="150" width="250"><br>
+            Idly<br><input type="checkbox" name="t" value="42">42 rs
+        </th>
+        <th width="300"><img src="{% static 'images/dosa.jpg' %}" height="150" width="250">
+        <br>
+            Dosa<br><input type="checkbox" name="t" value="63">63 rs
+        </th>
+        <th width="300"><img src="{% static 'images/puri.jpg' %}" height="150" width="250">
+        <br>
+            Poori<br><input type="checkbox" name="t" value="63">63 rs</th>
+        <th width="300"><img src="{% static 'images/vada.jpg' %}" height="150" width="250">
+        <br>
+            Vada<br><input type="checkbox" name="t" value="60">60 rs
+        </th>
+        <th width="300"><img src="{% static 'images/rava_upma.png' %}" height="150" width="250">
+        <br>
+            Upma<br><input type="checkbox" name="t" value="40">40 rs
+{#            <button class="wNrY50">-</button>1<button class="wNrY50">+</button>#}
+        </th>
+    </tr>
+    <tr>
+        <th><img src="{% static 'images/onion_butter_dosa.jpg' %}" height="150" width="250">
+        <br>
+            Onion Butter Masala Dosa<br><input type="checkbox" name="t" value="65">65 rs
+        </th>
+        <th><img src="{% static 'images/idly_vada.jpg' %}" height="150" width="250">
+        <br>
+           Idly Vada<br><input type="checkbox" name="t" value="45">45 rs
+        </th>
+        <th><img src="{% static 'images/masala_dosa.jpg' %}" height="150" width="250">
+        <br>
+            Masala Dosa<br><input type="checkbox" name="t" value="65">65 rs
+        </th>
+        <th><img src="{% static 'images/paneer_butter_masala_with_roti.jpg' %}" height="150" width="250">
+        <br>
+            Roti<br><input type="checkbox" name="t" value="68">68 rs
+        </th>
+        <th><img src="{% static 'images/chapathi with paneer butter masala.jpg' %}" height="150" width="250">
+        <br>
+            Chapathi<br><input type="checkbox" name="t" value="70">70 rs
+        </th>
+    </tr>
+    <tr>
+        <th><img src="{% static 'images/mysore_buji.jpg' %}" height="150" width="250">
+        <br>
+            Mysoor Bajji<br><input type="checkbox" name="t" value="53">53 rs
+        </th>
+        <th><img src="{% static 'images/set_dosa.jpg' %}" height="150" width="250">
+        <br>
+           Set Dosa<br><input type="checkbox" name="t" value="68">68 rs
+        </th>
+        <th><img src="{% static 'images/tomato bath.jpeg' %}" height="150" width="250">
+        <br>
+            Tomato Bath<br><input type="checkbox" name="t" value="47">47 rs
+        </th>
+        <th><img src="{% static 'images/pesara_dosa.jpg' %}" height="150" width="250">
+        <br>
+            Pesarattu<br><input type="checkbox" name="t" value="68">68 rs
+        </th>
+        <th><img src="{% static 'images/egg_dosa.png' %}" height="150" width="250">
+        <br>
+            Egg Dosa<br><input type="checkbox" name="t" value="70">70 rs
+        </th>
+    </tr>
+    <tr>
+        <th><img src="{% static 'images/green-tea.jpg' %}" height="150" width="250">
+        <br>
+            Green Tea<br><input type="checkbox" name="t" value="30">30 rs
+        </th>
+        <th><img src="{% static 'images/lemon tea.jpg' %}" height="150" width="250">
+        <br>
+           Lemon Tea<br><input type="checkbox" name="t" value="30">30 rs
+        </th>
+        <th><img src="{% static 'images/Masala_Chai.jpg' %}" height="150" width="250">
+        <br>
+            Tea<br><input type="checkbox" name="t" value="25">25 rs
+        </th>
+        <th><img src="{% static 'images/cofee.png' %}" height="150" width="250">
+        <br>
+            Cofee<br><input type="checkbox" name="t" value="30">30 rs
+        </th>
+    </tr>
+
+<tr>
+    <th colspan="3" width="300">
+        <button type="submit"><h3>Total</h3></button>
+    </th>
+    <th colspan="2">
+        {% if result %}
+        {% for k,v in result.items %}
+           {{ k }}:{{ v }}<br>
+            {% endfor %}
+        {% endif %}
+    </th>
+</tr>
+</table>
+</form>
+</body>
+</html>
